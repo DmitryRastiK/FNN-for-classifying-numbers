@@ -6,14 +6,10 @@ import torchvision.transforms.v2 as tfs
 
 transform = tfs.ToPILImage()
 
-mnist_train = torchvision.datasets.MNIST(
-    r"C:\datasets\mnist", download=True, train=True
-)
-mnist_test = torchvision.datasets.MNIST(
-    r"C:\datasets\mnist", download=True, train=False
-)
+mnist_train = torchvision.datasets.MNIST("./datasets/mnist", download=True, train=True)
+mnist_test = torchvision.datasets.MNIST("./datasets/mnist", download=True, train=False)
 
-dir_out = "dataset"
+dir_out = os.path.join(os.path.dirname(__file__), "dataset")
 file_format = "format.json"
 train_data = {"dir": "train", "data": mnist_train}
 test_data = {"dir": "test", "data": mnist_test}
